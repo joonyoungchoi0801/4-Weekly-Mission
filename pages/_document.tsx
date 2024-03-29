@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import Link from 'next/link';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -46,7 +47,7 @@ class MyDocument extends Document {
           <Link rel="preconnect" href="https://fonts.googleapis.com" />
           <Link rel="preconnect" href="https://fonts.gstatic.com" />
           <Link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet" />
-          <script defer src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+          <Script defer src="https://developers.kakao.com/sdk/js/kakao.min.js"></Script>
         </Head>
         <body>
           <Main />
