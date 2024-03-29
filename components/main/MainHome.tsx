@@ -1,21 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import styled from "styled-components";
-import styles from "@/styles/homepage.module.css";
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const StyledLink = styled(Link)`
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 20px;
-  background-color: #6d6afe;
-  color: black;
-  border-radius: 25px;
-  text-decoration: none;
-`;
+import React from 'react';
+import Link from 'next/link';
+
+import styles from '@/styles/homepage.module.css';
 
 function MainHome() {
   return (
@@ -25,6 +11,9 @@ function MainHome() {
       </Link>
       <Link className={styles.homebtn} href="/folder">
         Folder page
+      </Link>
+      <Link className={styles.homebtn} href="/signin">
+        Signin Page
       </Link>
     </div>
   );
