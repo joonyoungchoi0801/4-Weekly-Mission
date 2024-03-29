@@ -139,7 +139,7 @@ function Share({ title, main, onClose, currentFolderId }: Props) {
   useEffect(() => {
     const { Kakao } = window;
     Kakao.cleanup();
-    Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    Kakao.init('08985770502e02f6ac12635e2f81df30');
   }, []);
   const shareKakao = () => {
     const { Kakao } = window;
