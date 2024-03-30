@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import LinkInput from './LinkInput';
 import { getFolderType } from '@/utils/api';
 import Add from '@/modals/Add';
-// import { modalRoot } from '@/consts/const';
+import { useFooterVisibility, useGnbVisibility } from '../../hooks/useComponentVisible';
 import { Folder } from '@/consts/type';
 const Container = styled.div`
   display: flex;
@@ -46,6 +46,12 @@ function Gnbfolder() {
   const [data, setData] = useState<Folder[]>([]);
   const [isButtonSelected, setButtonSelected] = useState<boolean>(false);
   const [modalRoot, setModalRoot] = useState<HTMLBodyElement | null>(null);
+
+  const { isFooterVisible } = useFooterVisibility();
+
+  const { setGnbVisibility, isGnbVisible } = useGnbVisibility();
+  const gnbRef = useRef(null);
+
   useEffect(() => {
     const root = document.getElementById('modal-root') as HTMLBodyElement;
     setModalRoot(root);
@@ -56,7 +62,17 @@ function Gnbfolder() {
     }
     getFolderData();
   }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setGnbVisibility(entry.isIntersecting);
+    });
 
+    if (gnbRef.current) {
+      observer.observe(gnbRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [setGnbVisibility]);
   const folderList = data.map((item) => ({
     id: item.id,
     name: item.name,
@@ -70,12 +86,10 @@ function Gnbfolder() {
   };
 
   return (
-    <Container>
-      <InputContainer>
-        <LinkInput onClick={handleButtonClick} />
-        {isButtonSelected &&
-          ReactDOM.createPortal(<Add data={folderList} onClose={handleCloseClick} />, modalRoot as HTMLBodyElement)}
-      </InputContainer>
+    <Container ref={gnbRef}>
+      <LinkInput onClick={handleButtonClick} gnbVisible={isGnbVisible} footerVisible={isFooterVisible} />
+      {isButtonSelected &&
+        ReactDOM.createPortal(<Add data={folderList} onClose={handleCloseClick} />, modalRoot as HTMLBodyElement)}
     </Container>
   );
 }
