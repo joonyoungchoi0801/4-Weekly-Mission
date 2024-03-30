@@ -1,6 +1,6 @@
-import { fetchAPI } from "@/utils/fetchApi";
+import { fetchAPI } from '@/utils/fetchApi';
 
-const BASE_URL = "https://bootcamp-api.codeit.kr/api";
+const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 export async function getUser() {
   return fetchAPI(`${BASE_URL}/sample/user`);
 }
@@ -10,13 +10,10 @@ export async function getFolder() {
 }
 
 export async function getFolderType() {
-  return fetchAPI(`${BASE_URL}/users/1/folders`);
+  return fetchAPI(`${BASE_URL}/users/4/folders`);
 }
 
 export async function getFolderList(id: number | null) {
-  const url =
-    id === null
-      ? `${BASE_URL}/users/1/links`
-      : `${BASE_URL}/users/1/links?folderId=${id}`;
+  const url = id === null ? `${BASE_URL}/users/4/links` : `${BASE_URL}/users/4/links?folderId=${id}`;
   return fetchAPI(url);
 }

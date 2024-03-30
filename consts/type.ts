@@ -1,5 +1,4 @@
-import { StaticImageData } from "next/image";
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 export interface Folder {
   id: number | null;
   name: string;

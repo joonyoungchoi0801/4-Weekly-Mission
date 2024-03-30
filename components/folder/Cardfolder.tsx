@@ -10,7 +10,6 @@ import { setTime } from '@/utils/setTime';
 import { getFolderList, getFolderType } from '@/utils/api';
 import Delete from '@/modals/Delete';
 import Add from '@/modals/Add';
-// import { modalRoot } from '@/consts/const';
 import { Folder, Item1 } from '@/consts/type';
 
 interface CardClick {
@@ -28,20 +27,25 @@ function Cardfolder({ selectedFolder, dataInfo, inputValue }: Props) {
   const [items, setItems] = useState<Item1[]>([]);
   const [inputItems, setInputItems] = useState<Item1[]>(items);
   const [dataNull, setDataNull] = useState<boolean>(true);
-  const [selectedItemDelete, setSelectedItemDelete] = useState<any>(null);
+  const [selectedItemDelete, setSelectedItemDelete] = useState<Item1 | null>(null);
   const [folderListData, setFolderListData] = useState<Folder[]>([]);
   const [addFolderSelected, setAddFolderSelected] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLBodyElement | null>(null);
   useEffect(() => {
     async function getFolderData() {
       const result = await getFolderList(selectedFolder.id);
-      if (result.data.length === 0) {
+      if (result.data?.length === 0) {
         setDataNull(true);
         dataInfo(true);
       } else {
         setDataNull(false);
         dataInfo(false);
-        setItems(result.data || []);
+        const updatedData = result.data.map((item: Item1) => ({
+          ...item,
+          image_source: item.image_source && item.image_source.startsWith('https') ? item.image_source : null,
+        }));
+
+        setItems(updatedData);
       }
     }
     async function getFolderListData() {
@@ -112,8 +116,12 @@ function Cardfolder({ selectedFolder, dataInfo, inputValue }: Props) {
       {inputItems.map((item) => (
         <Link href={item.url} target="_blank" rel="noopener noreferrer" className={styles.card} key={item.id}>
           <div className={styles.imgSection}>
-            <Image width={500} height={500} src={item.image_source || ErrorImage} alt={item.title}></Image>
-            <Image src={StarIcon} alt="star" id="starIcon"></Image>
+            {item.image_source ? (
+              <img src={item.image_source} alt={item.title}></img>
+            ) : (
+              <Image src={ErrorImage} alt={item.title}></Image>
+            )}
+            <Image src={StarIcon} alt="star" id={styles.starIcon}></Image>
           </div>
           <div className={styles.infoSection}>
             <Image src={Kebab} alt="kebab" id={styles.kebab} onClick={(event) => clickKebab(event, item.id)}></Image>
