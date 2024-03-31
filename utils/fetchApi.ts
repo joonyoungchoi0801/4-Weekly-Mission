@@ -11,3 +11,4 @@ export async function fetchAPI(url: string, options = {}): Promise<any> {
     return { error: true, message: message };
   }
 }
+//vercel
