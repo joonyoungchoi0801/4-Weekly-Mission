@@ -1,3 +1,4 @@
+/* input */
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -57,10 +58,119 @@
   width: 16px;
   height: 16px;
 }
+/* signguide */
 
-/*  아래부턴 임시 */
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.guide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+#guideSpan {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+#guideLink {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: underline;
+}
 
-.main {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+/* inputform */
+.inputFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  width: 100vw;
+  height: 100vh;
+  gap: 32px;
+}
+
+/* button */
+.button {
+  display: flex;
+  width: 100%;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* social */
+.socialWrapper {
+  display: flex;
+  width: 100%;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
+.socialGuide {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.imgWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+/* .main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,4 +183,4 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
+} */

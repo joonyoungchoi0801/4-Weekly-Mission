@@ -1,6 +1,6 @@
-import React from 'react';
-import Input from './Input';
-import styles from '@/styles/sign.module.css';
+import React from "react";
+import Input from "@/components/common/Input";
+import styles from "@/styles/sign.module.css";
 
 export default function Example() {
   return (

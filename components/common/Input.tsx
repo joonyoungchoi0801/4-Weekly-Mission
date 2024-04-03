@@ -35,7 +35,7 @@ const Input: React.FC<Props> = ({ usage }) => {
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
-  const emailmessage = emailValue?.length > 0 ? '유효한 이메일 형식이 아닙니다.' : '이메일은 필수입니다.';
+  // const emailmessage = emailValue?.length > 0 ? '유효한 이메일 형식이 아닙니다.' : '이메일은 필수입니다.';
   const handleEmailFocusOut = () => {
     const emailInputValid = checkEmailValid(emailValue);
     setEmailValid(emailInputValid);
@@ -63,7 +63,7 @@ const Input: React.FC<Props> = ({ usage }) => {
             })}
             onBlur={handleEmailFocusOut}
           />
-          {!emailValid && !errors.email && <label className={styles.alert}>{emailmessage} </label>}
+          {/* {!emailValid && !errors.email && <label className={styles.alert}>{emailmessage} </label>} */}
           {errors.email && <label className={styles.alert}>{errors.email.message}</label>}
         </form>
       ) : (
@@ -91,9 +91,9 @@ const Input: React.FC<Props> = ({ usage }) => {
               alt="eye-icon"
             />
           </div>
-          {!passwordValid && !errors.password && (
+          {/* {!passwordValid && !errors.password && (
             <label className={styles.alert}>비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.</label>
-          )}
+          )} */}
           {errors.password && <label className={styles.alert}>{errors.password.message}</label>}
         </form>
       )}
