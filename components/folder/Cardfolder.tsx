@@ -109,9 +109,8 @@ function Cardfolder({ selectedFolder, dataInfo, inputValue }: Props) {
   const handleCloseDelete = () => {
     setSelectedItemDelete(null);
   };
-  return dataNull ? (
-    <span className="errorInfo">저장된 링크가 없습니다.</span>
-  ) : (
+  if (dataNull) return <span className="errorInfo">저장된 링크가 없습니다.</span>;
+  return (
     <>
       {inputItems.map((item) => (
         <Link href={item.url} target="_blank" rel="noopener noreferrer" className={styles.card} key={item.id}>
