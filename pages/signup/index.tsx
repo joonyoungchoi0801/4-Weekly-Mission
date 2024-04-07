@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import MainForm from '@/components/signin/MainForm';
+import { useEffect } from 'react';
+import MainForm from '@/components/signup/MainForm';
 import SignLayout from '@/components/layout/SignLayout';
 import styles from '@/styles/sign.module.css';
 
-function Signin() {
+function Signup() {
   const router = useRouter();
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
@@ -13,7 +13,6 @@ function Signin() {
       localStorage.removeItem('accessToken');
     }
   }, [router]);
-
   return (
     <SignLayout>
       <div className={styles.pageWrapper}>
@@ -23,4 +22,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

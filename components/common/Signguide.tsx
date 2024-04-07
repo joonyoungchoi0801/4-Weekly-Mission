@@ -7,9 +7,10 @@ import logo from "@/image/signlogo.svg";
 interface Props {
   guide: string;
   linkstr: string;
+  page: string;
 }
 
-const Signguide: React.FC<Props> = ({ guide, linkstr }) => {
+const Signguide: React.FC<Props> = ({ guide, linkstr, page }) => {
   return (
     <div className={styles.logoWrapper}>
       <Link className={styles.link} href="./">
@@ -17,7 +18,10 @@ const Signguide: React.FC<Props> = ({ guide, linkstr }) => {
       </Link>
       <div className={styles.guide}>
         <span id={styles.guideSpan}>{guide}</span>
-        <Link id={styles.guideLink} href="./signup">
+        <Link
+          id={styles.guideLink}
+          href={page === "signin" ? "./signup" : "./signin"}
+        >
           {linkstr}
         </Link>
       </div>

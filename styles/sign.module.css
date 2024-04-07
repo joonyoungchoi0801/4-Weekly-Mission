@@ -139,6 +139,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  border: none;
+  cursor: pointer;
 }
 
 /* social */
@@ -170,17 +172,3 @@
   height: 35px;
   border-radius: 100%;
 }
-/* .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  width: 100%;
-  background: var(--Linkbrary-bg, #f0f6ff);
-}
-
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-} */

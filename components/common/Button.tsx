@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "@/styles/sign.module.css";
-import { HookProps } from "@/consts/type";
-import Link from "next/link";
 
-const Button: React.FC<HookProps> = ({ children }) => {
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick: () => void;
+}
+const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return (
-    <Link href="./" className={styles.button}>
+    <button onClick={onClick} type="submit" className={styles.button}>
       {children}
-    </Link>
+    </button>
   );
 };
 

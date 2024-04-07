@@ -15,6 +15,9 @@ function MainHome() {
       <Link className={styles.homebtn} href="/signin">
         Signin Page
       </Link>
+      <Link className={styles.homebtn} href="/signup">
+        Signup Page
+      </Link>
     </div>
   );
 }
