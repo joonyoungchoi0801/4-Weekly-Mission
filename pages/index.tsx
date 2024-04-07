@@ -1,6 +1,6 @@
-import Headerfolder from "@/components/folder/Headerfolder";
-import MainHome from "@/components/main/MainHome";
-import Footer from "@/components/common/Footer";
+import Headerfolder from '@/components/folder/Headerfolder';
+import MainHome from '@/components/main/MainHome';
+import Footer from '@/components/common/Footer';
 
 function Home() {
   return (
@@ -13,3 +13,4 @@ function Home() {
 }
 
 export default Home;
+//vercel
